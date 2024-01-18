@@ -2,13 +2,18 @@
 
 source 'https://rubygems.org'
 
-ruby '~> 3.3.0'
+if RUBY_PLATFORM == 'java'
+  ruby '~> 3.1.0'
+else
+  ruby '~> 3.3.0'
+end
 
 gem 'rails', '~> 7.0.8'
 
 # Gems
 gem 'activeadmin', '~> 3.2'
 gem 'active_storage_base64', '~> 2.0.0'
+gem 'activerecord-jdbc-adapter', platforms: %i[jruby]
 gem 'aws-sdk-s3', '~> 1.142', require: false
 gem 'bootsnap', '~> 1.17'
 gem 'delayed_job_active_record', '~> 4.1'
@@ -19,12 +24,13 @@ gem 'flipper', '~> 1.1.2'
 gem 'flipper-active_record', '~> 1.1.1'
 gem 'flipper-ui', '~> 1.1.2'
 gem 'jbuilder', '~> 2.10'
+gem 'jdbc-postgres', '~> 9.4', '>= 9.4.1206', platforms: %i[jruby]
 gem 'jsbundling-rails', '~> 1.2'
 gem 'lograge', '~> 0.14'
 gem 'newrelic_rpm', '~> 9.7'
-gem 'oj', '~> 3.16'
+gem 'oj', '~> 3.16', platforms: %i[mri]
 gem 'pagy', '~> 6.4'
-gem 'pg', '~> 1.5'
+gem 'pg', '~> 1.5', platforms: %i[mri]
 gem 'puma', '~> 6.4'
 gem 'pundit', '~> 2.3'
 gem 'rack-cors', '~> 2.0'
@@ -55,7 +61,7 @@ group :development do
   gem 'better_errors', '~> 2.10'
   gem 'binding_of_caller', '~> 1.0'
   gem 'brakeman', '~> 6.1'
-  gem 'i18n-tasks', '~> 1.0.13'
+  gem 'i18n-tasks', git: "git@github.com:glebm/i18n-tasks.git", branch: "main"
   gem 'letter_opener', '~> 1.7'
   gem 'listen', '~> 3.8'
   gem 'rails_best_practices', '~> 1.20'
@@ -76,7 +82,7 @@ group :test do
   gem 'knapsack', '~> 4.0'
   gem 'octokit', '~> 8.0'
   gem 'parallel_tests', '~> 4.4'
-  gem 'pg_query', '~> 5.1.0'
+  gem 'pg_query', '~> 5.1.0', platform: :mri
   gem 'prosopite', '~> 1.4.2'
   gem 'rspec-openapi', '~> 0.11'
   gem 'rspec-rails', '~> 6.1'

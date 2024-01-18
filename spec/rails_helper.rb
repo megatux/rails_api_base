@@ -50,8 +50,10 @@ RSpec.configure do |config|
   config.include Shoulda::Matchers::ActiveRecord, type: :form
 
   # Detects N+1 queries
-  config.before { Prosopite.scan }
-  config.after { Prosopite.finish }
+  if RUBY_PLATFORM != 'java'  # Prosopite use C extensions and don't work with JRuby
+    config.before { Prosopite.scan }
+    config.after { Prosopite.finish }
+  end
 
   # Reset previous flipper instance
   config.before { Flipper.instance = nil }

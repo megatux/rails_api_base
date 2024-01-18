@@ -1,4 +1,20 @@
 GIT
+  remote: git@github.com:glebm/i18n-tasks.git
+  revision: d76961f05c76a836a8832b0dcd9e72c771fa6b96
+  branch: main
+  specs:
+    i18n-tasks (1.0.13)
+      activesupport (>= 4.0.2)
+      ast (>= 2.1.0)
+      erubi
+      highline (>= 2.0.0)
+      i18n
+      parser (>= 3.2.2.1)
+      rails-i18n
+      rainbow (>= 2.2.2, < 4.0)
+      terminal-table (>= 1.5.1)
+
+GIT
   remote: https://github.com/rootstrap/rspec-retry.git
   revision: 8266536fb6f4bc8d005c3863bcdfe8d7a6c9b203
   branch: add-intermittent-callback
@@ -9,6 +25,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    abbrev (0.1.2)
     actioncable (7.0.8)
       actionpack (= 7.0.8)
       activesupport (= 7.0.8)
@@ -77,6 +94,8 @@ GEM
     activerecord (7.0.8)
       activemodel (= 7.0.8)
       activesupport (= 7.0.8)
+    activerecord-jdbc-adapter (70.1-java)
+      activerecord (~> 7.0)
     activestorage (7.0.8)
       actionpack (= 7.0.8)
       activejob (= 7.0.8)
@@ -116,18 +135,13 @@ GEM
       aws-eventstream (~> 1, >= 1.0.2)
     base64 (0.2.0)
     bcrypt (3.1.19)
+    bcrypt (3.1.19-java)
     better_errors (2.10.1)
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
       rouge (>= 1.0.0)
-    better_html (2.0.2)
-      actionview (>= 6.0)
-      activesupport (>= 6.0)
-      ast (~> 2.0)
-      erubi (~> 1.4)
-      parser (>= 2.4)
-      smart_properties
     bigdecimal (3.1.5)
+    bigdecimal (3.1.5-java)
     binding_of_caller (1.0.0)
       debug_inspector (>= 0.0.1)
     bootsnap (1.17.0)
@@ -153,6 +167,7 @@ GEM
       rexml
     crass (1.0.6)
     date (3.3.3)
+    date (3.3.3-java)
     debug_inspector (1.1.0)
     delayed_job (4.1.11)
       activesupport (>= 3.0, < 8.0)
@@ -225,6 +240,10 @@ GEM
     faraday-retry (2.2.0)
       faraday (~> 2.0)
     ffi (1.16.3)
+    ffi (1.16.3-java)
+    ffi-compiler (1.0.1)
+      ffi (>= 1.0.0)
+      rake
     flipper (1.1.2)
       concurrent-ruby (< 2)
     flipper-active_record (1.1.1)
@@ -242,24 +261,17 @@ GEM
     globalid (1.2.1)
       activesupport (>= 6.1)
     google-protobuf (3.25.2)
+    google-protobuf (3.25.2-java)
+      ffi (~> 1)
+      ffi-compiler (~> 1)
     has_scope (0.8.2)
       actionpack (>= 5.2)
       activesupport (>= 5.2)
     hashdiff (1.0.1)
-    highline (2.1.0)
+    highline (3.0.0)
+      abbrev
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
-    i18n-tasks (1.0.13)
-      activesupport (>= 4.0.2)
-      ast (>= 2.1.0)
-      better_html (>= 1.0, < 3.0)
-      erubi
-      highline (>= 2.0.0)
-      i18n
-      parser (>= 3.2.2.1)
-      rails-i18n
-      rainbow (>= 2.2.2, < 4.0)
-      terminal-table (>= 1.5.1)
     inherited_resources (1.14.0)
       actionpack (>= 6.0)
       has_scope (>= 0.6)
@@ -268,6 +280,7 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    jdbc-postgres (9.4.1212)
     jmespath (1.6.2)
     jquery-rails (4.6.0)
       rails-dom-testing (>= 1, < 3)
@@ -276,6 +289,7 @@ GEM
     jsbundling-rails (1.2.2)
       railties (>= 6.0.0)
     json (2.7.1)
+    json (2.7.1-java)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.2)
@@ -318,6 +332,7 @@ GEM
     mini_portile2 (2.8.5)
     minitest (5.21.1)
     msgpack (1.7.2)
+    msgpack (1.7.2-java)
     net-imap (0.4.2)
       date
       net-protocol
@@ -329,8 +344,11 @@ GEM
       net-protocol
     newrelic_rpm (9.7.0)
     nio4r (2.7.0)
+    nio4r (2.7.0-java)
     nokogiri (1.16.0)
       mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
+    nokogiri (1.16.0-java)
       racc (~> 1.4)
     octokit (8.0.0)
       faraday (>= 1, < 3)
@@ -352,6 +370,10 @@ GEM
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
+    pry (0.14.2-java)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+      spoon (~> 0.0)
     pry-byebug (3.10.1)
       byebug (~> 11.0)
       pry (>= 0.13, < 0.15)
@@ -360,9 +382,12 @@ GEM
     public_suffix (5.0.3)
     puma (6.4.2)
       nio4r (~> 2.0)
+    puma (6.4.2-java)
+      nio4r (~> 2.0)
     pundit (2.3.1)
       activesupport (>= 3.0.0)
     racc (1.7.3)
+    racc (1.7.3-java)
     rack (2.2.8)
     rack-cors (2.0.1)
       rack (>= 2.0.0)
@@ -524,7 +549,8 @@ GEM
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.4)
-    smart_properties (1.17.0)
+    spoon (0.0.6)
+      ffi
     spring (4.1.3)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
@@ -542,6 +568,8 @@ GEM
     timeout (0.4.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2023.4)
+      tzinfo (>= 1.0.0)
     unicode-display_width (2.5.0)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -551,6 +579,8 @@ GEM
       hashdiff (>= 0.4.0, < 2.0.0)
     websocket (1.2.10)
     websocket-driver (0.7.6)
+      websocket-extensions (>= 0.1.0)
+    websocket-driver (0.7.6-java)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     xpath (3.2.0)
@@ -562,10 +592,12 @@ GEM
 
 PLATFORMS
   ruby
+  universal-java-21
 
 DEPENDENCIES
   active_storage_base64 (~> 2.0.0)
   activeadmin (~> 3.2)
+  activerecord-jdbc-adapter
   annotate (~> 3.2, >= 3.0.3)
   aws-sdk-s3 (~> 1.142)
   better_errors (~> 2.10)
@@ -584,8 +616,9 @@ DEPENDENCIES
   flipper (~> 1.1.2)
   flipper-active_record (~> 1.1.1)
   flipper-ui (~> 1.1.2)
-  i18n-tasks (~> 1.0.13)
+  i18n-tasks!
   jbuilder (~> 2.10)
+  jdbc-postgres (~> 9.4, >= 9.4.1206)
   jsbundling-rails (~> 1.2)
   knapsack (~> 4.0)
   letter_opener (~> 1.7)
@@ -632,7 +665,7 @@ DEPENDENCIES
   yaaf (~> 2.2)
 
 RUBY VERSION
-   ruby 3.3.0p0
+   ruby 3.1.4p0 (jruby 9.4.5.0)
 
 BUNDLED WITH
    2.3.23
